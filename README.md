@@ -3,3 +3,11 @@
 
 ## What is AngularJS?
 A client-side JavaScript Framework for adding interactivity to HTML.
+
+### Directives
+HTML attribute
+
+### Modules
+
+### Expressions
+Insert dynamic values into the HTML.

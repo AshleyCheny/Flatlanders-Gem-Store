@@ -12,13 +12,26 @@
   <!-- add the controller reference through "ng-controller" directive in HTML -->
   <body class="container" ng-controller="StoreController as store">
     <!-- use directive ng-repeat to loop through the controller's array property -->
-    <div class="product row" ng-repeat="product in store.products">
+    <div class="list-group-item" ng-repeat="product in store.products">
       <h3>
         <!-- display the controller's property data through expressions in HTML -->
         {{ product.name }}
-        <em class="pull-right">{{ product.price }}</em>
+        <em class="pull-right">{{ product.price | currency }}</em>
       </h3>
-      <button>Add to Cart</button>
+      <!-- Image Gallery  -->
+      <!-- if the images array is empty, ng-show's value will be false -->
+        <div class="gallery" ng-show="product.images.length">
+          <div class="img-wrap">
+            <!-- use directive ng-src to render the image url from the data -->
+            <img ng-src="{{ product.images[0] }}"/>
+          </div>
+          <ul class="img-thumbnails clearfix">
+            <!-- use ng-repeat to loop through the images array -->
+            <li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
+              <img ng-src="{{ image }}" />
+            </li>
+        </ul>
+        </div>
     </div>
   </body>
 </html>

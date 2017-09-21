@@ -11,13 +11,14 @@
   </head>
   <!-- add the controller reference through "ng-controller" directive in HTML -->
   <body class="container" ng-controller="StoreController as store">
-    <div class="product row" ng-hide="store.product.soldOut">
+    <!-- use directive ng-repeat to loop through the controller's array property -->
+    <div class="product row" ng-repeat="product in store.products">
       <h3>
         <!-- display the controller's property data through expressions in HTML -->
-        {{ store.product.name }}
-        <em class="pull-right">{{ store.product.price }}</em>
+        {{ product.name }}
+        <em class="pull-right">{{ product.price }}</em>
       </h3>
-      <button ng-show="store.product.canPurchas">Add to Cart</button>
+      <button>Add to Cart</button>
     </div>
   </body>
 </html>
